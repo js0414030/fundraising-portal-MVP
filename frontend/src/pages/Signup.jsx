@@ -9,7 +9,7 @@ export default function Signup() {
     const [error, setError] = useState("");
 
     const handleSignup = async () => {
-        const res = await fetch("http://localhost:5000/api/signup", {
+        const res = await fetch("https://fundraising-portal-mvp.onrender.com/api/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, email, password }),

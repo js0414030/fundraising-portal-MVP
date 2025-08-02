@@ -6,10 +6,25 @@ import internRoutes from "./routes/internRoutes.js";
 
 dotenv.config();
 const app = express();
-app.use(cors());
+
+// ✅ Allow your Vercel frontend (update the URL after deployment)
+app.use(cors({
+    origin: ["https://your-frontend.vercel.app"], // replace with your Vercel frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
+
 app.use(express.json());
 
+// ✅ Connect to MongoDB
 connectDB();
+
+// ✅ Root route for testing
+app.get("/", (req, res) => {
+    res.send("✅ Backend is working");
+});
+
+// ✅ API routes
 app.use("/api", internRoutes);
 
 const PORT = process.env.PORT || 5000;

@@ -11,7 +11,7 @@ export default function Dashboard() {
     const id = localStorage.getItem("userId");
 
     const fetchData = () => {
-        fetch(`http://localhost:5000/api/dashboard/${id}`)
+        fetch(`https://fundraising-portal-mvp.onrender.com/api/dashboard/${id}`)
             .then(res => res.json())
             .then(setData)
             .catch(() => navigate("/"));
@@ -27,7 +27,7 @@ export default function Dashboard() {
 
     const handleDonate = async () => {
         if (!donation || Number(donation) <= 0) return;
-        await fetch(`http://localhost:5000/api/donate/${id}`, {
+        await fetch(`https://fundraising-portal-mvp.onrender.com/api/donate/${id}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ amount: Number(donation) }),

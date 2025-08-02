@@ -8,7 +8,7 @@ export default function Login() {
     const [error, setError] = useState("");
 
     const handleLogin = async () => {
-        const res = await fetch("http://localhost:5000/api/login", {
+        const res = await fetch("https://fundraising-portal-mvp.onrender.com/api/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password }),

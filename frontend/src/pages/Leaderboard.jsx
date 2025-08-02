@@ -8,7 +8,7 @@ export default function Leaderboard() {
     const { theme, toggleTheme } = useContext(ThemeContext);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/leaderboard")
+        fetch("https://fundraising-portal-mvp.onrender.com/api/leaderboard")
             .then(res => res.json())
             .then(setLeaders);
     }, []);
